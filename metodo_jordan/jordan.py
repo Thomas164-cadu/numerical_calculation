@@ -24,6 +24,12 @@ def formatar_matriz(A, b):
     return "\n".join(linhas)
 
 
+def formatar_vetor(x):
+    """Retorna uma string com o vetor x formatado linha a linha (5 casas)."""
+    x = np.array(x, dtype=float)
+    return "[" + ", ".join(f"{xi:8.5f}" for xi in x) + "]"
+
+
 def eliminacao_jordan(A, b, pivoting=True, verbose=True):
     """
     Resolve o sistema Ax = b usando eliminação de Gauss-Jordan (redução por linhas até a forma reduzida por linhas)
@@ -103,5 +109,4 @@ if __name__ == "__main__":
     b = [1, -2, 0]
 
     sol = eliminacao_jordan(A, b, pivoting=True, verbose=True)
-    print("Solução:", sol)
-
+    print("Solução:", formatar_vetor(sol))

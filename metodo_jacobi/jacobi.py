@@ -111,5 +111,4 @@ if __name__ == "__main__":
     b = [6.0, 25.0, -11.0, 15.0]
 
     sol = metodo_jacobi(A, b, x0=None, tol=1e-8, max_iter=100, verbose=True)
-    print("Solução aproximada:", sol)
-
+    print("Solução aproximada:", formatar_vetor(sol))

@@ -23,6 +23,12 @@ def formatar_matriz(A, b):
     return "\n".join(linhas)
 
 
+def formatar_vetor(x):
+    """Retorna uma string com o vetor x formatado linha a linha (5 casas)."""
+    x = np.array(x, dtype=float)
+    return "[" + ", ".join(f"{xi:8.5f}" for xi in x) + "]"
+
+
 def eliminacao_gauss_com_tabela(A, b, pivoting=True):
     A = np.array(A, dtype=float)
     b = np.array(b, dtype=float)
@@ -84,4 +90,4 @@ if __name__ == "__main__":
     b = [1, -2, 0]
 
     sol = eliminacao_gauss_com_tabela(A, b, pivoting=True)
-    print("Solução:", sol)
+    print("Solução:", formatar_vetor(sol))
